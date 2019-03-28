@@ -23,6 +23,7 @@ pipeline {
           sh "mvn install"
           sh "skaffold version"
           sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
+          sh "jx step validate --min-jx-version 1.2.36"
           sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
           dir('charts/preview') {
             sh "make preview"
@@ -50,6 +51,7 @@ pipeline {
           sh "mvn clean deploy"
           sh "skaffold version"
           sh "export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml"
+          sh "jx step validate --min-jx-version 1.2.36"
           sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
         }
       }
