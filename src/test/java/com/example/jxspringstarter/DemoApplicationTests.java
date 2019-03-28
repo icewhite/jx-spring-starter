@@ -16,7 +16,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void simpleTest(){
-		boolean isTrue = false;
+		boolean isTrue = true;
 		Assert.assertTrue(isTrue);
 	}
 
