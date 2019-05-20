@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 10.0.136.86:5000/icewhite/jx-spring-starter
+  tag: 0.0.7
   pullPolicy: IfNotPresent
 service:
   name: jx-spring-starter
